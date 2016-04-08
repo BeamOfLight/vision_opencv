@@ -3,7 +3,7 @@ project(opencv_apps)
 
 find_package(catkin REQUIRED COMPONENTS cv_bridge dynamic_reconfigure message_generation image_transport nodelet roscpp)
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 3.1 REQUIRED)
 message(STATUS "OpenCV Components: ${OpenCV_LIB_COMPONENTS}")
 if(OpenCV_VERSION VERSION_LESS "3.0" OR TARGET opencv_optflow)
   set(OPENCV_HAVE_OPTFLOW TRUE)
@@ -70,7 +70,6 @@ generate_messages(
 )
 
 catkin_package(CATKIN_DEPENDS std_msgs
-#                DEPENDS OpenCV
                INCLUDE_DIRS include
                LIBRARIES ${PROJECT_NAME}
 )
